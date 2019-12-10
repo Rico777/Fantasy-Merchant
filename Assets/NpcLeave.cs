@@ -22,7 +22,7 @@ public class NpcLeave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("up"))
+        if (Input.GetKey("up") && n.clicked == true)
         {
             leave = true;
             n.clicked = false;
@@ -34,6 +34,7 @@ public class NpcLeave : MonoBehaviour
             {
                 n.axis.x = 0;
                 n.axis.y = 1;
+                leave = false; 
             }
         }
 

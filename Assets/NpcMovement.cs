@@ -9,10 +9,12 @@ public class NpcMovement : MonoBehaviour
     public Vector2 myVector;
     public float randy;
     public static bool otherclick;
+    public static bool movingright; 
     // Start is called before the first frame update
     void Start()
     {
-
+        movingright = false;
+        otherclick = false; 
         NPC = this.gameObject;
         n = NPC.GetComponent<NpcVar>();
         n.merchant = GameObject.Find("Merchant"); //IMPORTANT: CHANGE THIS NAME
@@ -34,7 +36,7 @@ public class NpcMovement : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (otherclick == false)
+        if (otherclick == false && movingright == false) 
         {
             n.clicked = true;
             otherclick = true;
@@ -47,12 +49,19 @@ public class NpcMovement : MonoBehaviour
         if (n.axis.x == 1)
         {
             otherclick = false;
+            movingright = true;
+        }
+        if (n.axis.x == 0)
+        {
+            movingright = false; 
         }
         if (n.clicked)
         {
+            otherclick = true; 
             if (transform.position.x < (n.merchant.transform.position.x + myVector.x))
             {
                 n.axis.x = 0;
+                //scene changes here
             }
             else if (transform.position.x > n.merchant.transform.position.x)
             {
