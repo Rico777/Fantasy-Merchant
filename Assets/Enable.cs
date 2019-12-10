@@ -8,7 +8,8 @@ public class Enable : MonoBehaviour , IPointerDownHandler
     public Transform itemsParent; 
     public Image redButton;
     public Image inventoryButton;
-    public Text inventoryText; 
+    public Text inventoryText;
+    public Text coinCount;
     int i = 0;
     Image[] slots; 
 
@@ -19,6 +20,7 @@ public class Enable : MonoBehaviour , IPointerDownHandler
         redButton.enabled = false;
         inventoryButton.enabled = true;
         inventoryText.enabled = false;
+        coinCount.enabled = true; 
         slots = itemsParent.GetComponentsInChildren<Image>();
 
         while (slots[i])
@@ -33,6 +35,7 @@ public class Enable : MonoBehaviour , IPointerDownHandler
         redButton.enabled = !redButton.enabled;
         inventoryButton.enabled = !inventoryButton.enabled;
         inventoryText.enabled = !inventoryText.enabled;
+        coinCount.enabled = !coinCount.enabled; 
         i = 0;
 
         while (slots[i])

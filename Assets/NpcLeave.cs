@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class NpcLeave : MonoBehaviour
 {
-    public static bool otherclick;
     private bool leave;
     public GameObject NPC;
     public NpcVar n;
@@ -25,7 +24,6 @@ public class NpcLeave : MonoBehaviour
     {
         if (Input.GetKey("up"))
         {
-            otherclick = false;
             leave = true;
             n.clicked = false;
         }

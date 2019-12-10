@@ -13,7 +13,7 @@ public class NpcVar : MonoBehaviour
     void Start()
     {
         merchant = GameObject.Find("Merchant");
-        spawner = GameObject.Find("Spawner");
+        spawner = GameObject.Find("SpawnerHero");
     }
 
     // Update is called once per frame

@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class NpcMovement : MonoBehaviour
 {
-    public static bool otherclick;
     public GameObject NPC;
     public NpcVar n;
     public Vector2 myVector;
     public float randy;
-
+    public static bool otherclick;
     // Start is called before the first frame update
     void Start()
     {
+
         NPC = this.gameObject;
         n = NPC.GetComponent<NpcVar>();
         n.merchant = GameObject.Find("Merchant"); //IMPORTANT: CHANGE THIS NAME
@@ -30,7 +30,7 @@ public class NpcMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log(otherclick);
     }
     private void OnMouseDown()
     {
@@ -44,7 +44,10 @@ public class NpcMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-
+        if (n.axis.x == 1)
+        {
+            otherclick = false;
+        }
         if (n.clicked)
         {
             if (transform.position.x < (n.merchant.transform.position.x + myVector.x))
